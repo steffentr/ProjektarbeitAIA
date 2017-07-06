@@ -1,0 +1,67 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tocloft}
+\usepackage{nomencl}
+\usepackage{pdfpages}
+\usepackage{bm}
+%opening
+\title{Investigations on one-way coupling effects of particle-laden decaying isotropic turbulent flows}
+\author{Julian Stemmermann, Steffen Trienekens, Christian Soika}
+\date{Aachen, 3rd of July 2017}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\tableofcontents{}
+ 
+\pagebreak
+
+\section{Nomenclature}
+\makenomenclature
+\printnomenclature
+\pagebreak
+
+\section{Introduction}
+\pagebreak
+\section{Mathematical models}
+\subsection{Single-phase flow} %Christian
+In this section the mathematical basics for understanding and simulating turbulent flows are discussed. However, it should be pointed out that this is no
+complete treatise of the mathematical and physical basics. The reader can achieve further insight on this topic by looking at different books and papers, 
+e.g. Pope (2000).
+\newline
+The Navier-Stokes-Equations are of great importance for understanding turbulent phenomena. This set of equations exists in forms for compressible and
+incompressible fluids. The starting point is the realization that the force on a fluid-volume equals the divergence of the cauchian stress tensor
+integrated over the whole volume.
+
+\begin{equation}
+  \vec F = \int_{\mathrm{A}}\vec s\mathrm{d}A = \int_{\mathrm{V}}\ \mathrm{div}(\bm{\sigma})\mathrm{d}V
+\end{equation}
+
+
+Christoph Siewert:
+-2.1 bis 2.6
+Stephan Fritz:
+-Navier-Stokes-Gleichungen (Anhang B)
+\pagebreak
+\subsection{Particle dynamics} %Steffen
+Siewert:
+-3.1a-3.14 (spherical particles) OHNE GRAVITATION
+Stokes Drag/Stokes Coefficient
+Filterung (Fritz) ->Viskositaet durch numerischen Fehler, Smagorinksy nicht benutzen
+\pagebreak
+\section{Numerical methods} %Julian
+Pojektion (noComputationalParticles)
+implizite LES (Motivation fuer LES -> Pope Chapter 9, Bild 9.4), DNS
+\pagebreak
+\section{Results}
+Graphen (particleFree rot, Laden gruen)
+\pagebreak
+\section{Conclusion}
+\pagebreak
+\section{Bibliography}
+\pagebreak
+
+\end{document}
