@@ -4,6 +4,9 @@
 \usepackage{nomencl}
 \usepackage{pdfpages}
 \usepackage{bm}
+\usepackage{scrextend}
+
+
 %opening
 \title{Investigations on one-way coupling effects of particle-laden decaying isotropic turbulent flows}
 \author{Julian Stemmermann, Steffen Trienekens, Christian Soika}
@@ -27,18 +30,46 @@
 \section{Introduction}
 \pagebreak
 \section{Mathematical models}
+Sollen wir hier noch isotrope Turbulenz etc. erklaeren?
 \subsection{Single-phase flow} %Christian
 In this section the mathematical basics for understanding and simulating turbulent flows are discussed. However, it should be pointed out that this is no
 complete treatise of the mathematical and physical basics. The reader can achieve further insight on this topic by looking at different books and papers, 
 e.g. Pope (2000).
 \newline
 The Navier-Stokes-Equations are of great importance for understanding turbulent phenomena. This set of equations exists in forms for compressible and
-incompressible fluids. The starting point is the realization that the force on a fluid-volume equals the divergence of the cauchian stress tensor
-integrated over the whole volume.
-
+incompressible fluids. For an infinitesimal small volume element \begin{math} \mathrm{d}\mathrm{tau} \end{math} and using the cartesian coordinate system,
+they can be written in the so-called 'divergence form'. 
 \begin{equation}
-  \vec F = \int_{\mathrm{A}}\vec s\mathrm{d}A = \int_{\mathrm{V}}\ \mathrm{div}(\bm{\sigma})\mathrm{d}V
+  \frac{\partial{\vec{\mathrm{Q}}}}{\partial{\mathrm{t}}} + \bm{\nabla}\vec{\mathrm{H}} = 0
 \end{equation}
+It should be noted by the reader that this work only contains investigations about chemically inert fluids and particles, and that the simulation results
+only fit under this condition. The vector \begin{math} \vec{\mathrm{Q}} \end{math} contains all the variables which are conserved, i.e. the density, 
+the velocity in all dimensions and the specific inner energy. 
+\begin{equation}
+ \vec\mathrm{Q}= \left( \begin{array}{c}\mathrm{\rho}\\\mathrm{\rho \vec{u}}\\\mathrm{\rho E}\end{array} \right)
+\end{equation}
+Until this point all variables have a specific dimension, which we going to dismiss in the next form of the equation:
+\begin{equation}
+ \mathrm{Sr} \frac{\partial{\vec{\mathrm{Q}}}}{\partial{\mathrm{t}}} + \frac{\partial{\vec{\mathrm{H_1}}}}{\partial{\mathrm{x}}} 
+ + \frac{\partial{\vec{\mathrm{H_2}}}}{\partial{\mathrm{y}}}  + \frac{\partial{\vec{\mathrm{H_3}}}}{\partial{\mathrm{z}}} = 0
+\end{equation}
+The Strouhal number \begin{math} \mathrm{Sr} = \mathrm{\frac{L}{U_\infty t_{ref}}}\end{math} is a dimensionless number for characterizing fluids.
+\newline
+\begin{math} \vec\mathrm{H} \end{math} is the flux vector which stores all the floating variables and may be split up into two parts: 
+\begin{equation}
+ \vec\mathrm{H} = \vec\mathrm{H^i} + \vec\mathrm{H^v}
+\end{equation}
+The contents of the two vectors are displayed below:
+\begin{equation}
+ \vec\mathrm{H^i} = \left( \begin{array}{c}\mathrm{\rho \vec{u}}\\\mathrm{\rho \vec{u} \vec{u} + p}\\\mathrm{\vec{u} (\rho E + p)}\end{array} \right)
+\end{equation}
+\begin{equation}
+ \vec\mathrm{H^v} = -\frac{1}{\mathrm{Re}} \left( \begin{array}{c}\mathrm{0}\\\mathrm{\vec{\tau}}\\\mathrm{\vec{\tau} \vec{u} + \vec{q}}\end{array} \right)
+\end{equation}
+\begin{math} \vec\mathrm{H^i} \end{math} is called inviscid flux and contains only the variables that are independent of the fluids viscosity, it describes the way a fluid 
+with zero viscosity would behave. In contrast, the viscous flux \begin{math} \vec\mathrm{H^v} \end{math} the effects of viscosity. The Reynolds number 
+\begin{math} \mathrm{Re = \frac{\rho v d}{\eta}} \end{math} is defined to be the ratio of inertia to tenacity, which makes it very valuable for understanding turbulent flows. This is also due to the 
+fact that two familiar objects with the same Reynolds number behave similar in turbulence. 
 
 
 Christoph Siewert:
