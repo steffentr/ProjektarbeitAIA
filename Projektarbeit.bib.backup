@@ -1,0 +1,23 @@
+ @book{pope2000,
+    author  = {Stephen B. Pope},
+    title   = {Turbulent Flows},
+    publisher = {Cambridge University Press},
+    year    = {2010},
+ }
+  @booklet{fluidmechanikAIA,
+    title = {Fluidmechanik},
+    author = {Wolfgang Schroeder},
+    year = {2010},
+ }
+ @booklet{studienarbeit,
+    author = {Stephan Fritz},
+    title = {Simulation isotroper Turbulenz},
+    school = {RWTH Aachen University},
+    year = {2003},
+}
+@conference{ValidationOfSimulation,
+    author = {Konstantin Fr\"ohlich, Lennart Schneiders, Matthias Meinke and Wolfgang Schr\"oder},
+    title = {Validation of Particle-Laden Large-Eddy Simulation using HPC Systems},
+    booktitle = {Sustained Simulation Performance 2017},
+    note = {unpublished conference document},
+    year = {2017}

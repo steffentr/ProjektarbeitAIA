@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{elgobashi1990}
+S.~Elghobashi.
+\newblock Particle-laden turbulent flows: direct simulation and closure models.
+\newblock {\em Applied Scientific Research}, 1991.
+
+\bibitem{studienarbeit}
+S.~Fritz.
+\newblock Simulation isotroper turbulenz, 2003.
+
+\bibitem{ValidationOfSimulation}
+M.~Meinke K.~Fr\"ohlich, L.~Schneiders and W.~Schr\"oder.
+\newblock Validation of particle-laden large-eddy simulation using hpc systems.
+\newblock In {\em Sustained Simulation Performance 2017}, 2017.
+\newblock unpublished conference document.
+
+\bibitem{pope2000}
+S.~B. Pope.
+\newblock {\em Turbulent Flows}.
+\newblock Cambridge University Press, 2010.
+
+\bibitem{fluidmechanikAIA}
+W.~Schr\"oder.
+\newblock Fluidmechanik, 2010.
+
+\end{thebibliography}

@@ -129,9 +129,9 @@ Graphen (particleFree rot, Laden gruen)
 \section{Conclusion}
 \pagebreak
 \section{Bibliography}
-\nocite{*} %ermoeglicht, dass auch Literatur, welche nicht zitiert wurde in der Bibliography auftaucht
-\bibliography{Projektarbeit} %ruft die Bibliography-Datei auf
-\bibliographystyle{plain} %setzt den Zitierstil
+\nocite{*}
+\bibliography{Projektarbeit}
+\bibliographystyle{plain}
 \pagebreak
 
 \end{document}

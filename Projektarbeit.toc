@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Nomenclature}{3}
+\contentsline {section}{\numberline {2}Introduction}{4}
+\contentsline {section}{\numberline {3}Mathematical models}{5}
+\contentsline {subsection}{\numberline {3.1}Single-phase flow}{5}
+\contentsline {subsubsection}{\numberline {3.1.1}The Navier-Stokes equations}{5}
+\contentsline {subsection}{\numberline {3.2}Particle dynamics}{7}
+\contentsline {section}{\numberline {4}Numerical methods}{8}
+\contentsline {section}{\numberline {5}Results}{9}
+\contentsline {section}{\numberline {6}Conclusion}{10}
+\contentsline {section}{\numberline {7}Bibliography}{11}
