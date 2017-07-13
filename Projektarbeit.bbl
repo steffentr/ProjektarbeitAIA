@@ -1,6 +1,11 @@
 \begin{thebibliography}{1}
 
-\bibitem{elgobashi1990}
+\bibitem{computationalMethodsforMultiphaseFlow}
+Edited by~A.~Prosperetti and G.~Tryggvason.
+\newblock {\em Computational Methods for Multiphase Flow}.
+\newblock Cambridge University Press, 2009.
+
+\bibitem{particleladenTurbulentFlows:DirectSimulationAndClosureModels}
 S.~Elghobashi.
 \newblock Particle-laden turbulent flows: direct simulation and closure models.
 \newblock {\em Applied Scientific Research}, 1991.
@@ -9,13 +14,13 @@ S.~Elghobashi.
 S.~Fritz.
 \newblock Simulation isotroper turbulenz, 2003.
 
-\bibitem{ValidationOfSimulation}
+\bibitem{ValidationOfParticleLadenLargeEddySimulationUsingHPCSystems}
 M.~Meinke K.~Fr\"ohlich, L.~Schneiders and W.~Schr\"oder.
 \newblock Validation of particle-laden large-eddy simulation using hpc systems.
 \newblock In {\em Sustained Simulation Performance 2017}, 2017.
 \newblock unpublished conference document.
 
-\bibitem{pope2000}
+\bibitem{turbulentFlows}
 S.~B. Pope.
 \newblock {\em Turbulent Flows}.
 \newblock Cambridge University Press, 2010.

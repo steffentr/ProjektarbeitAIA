@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Projektarbeit.aux
 The style file: plain.bst
 Database file #1: Projektarbeit.bib
-You've used 5 entries,
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            522 strings with 4563 characters,
-and the built_in function-call counts, 1076 in all, are:
-= -- 98
-> -- 41
+            529 strings with 4925 characters,
+and the built_in function-call counts, 1327 in all, are:
+= -- 120
+> -- 54
 < -- 0
-+ -- 17
-- -- 12
-* -- 43
-:= -- 199
-add.period$ -- 14
-call.type$ -- 5
-change.case$ -- 20
++ -- 22
+- -- 16
+* -- 55
+:= -- 243
+add.period$ -- 17
+call.type$ -- 6
+change.case$ -- 24
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 52
-empty$ -- 98
-format.name$ -- 12
-if$ -- 219
+cite$ -- 6
+duplicate$ -- 64
+empty$ -- 120
+format.name$ -- 16
+if$ -- 272
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 4
-newline$ -- 27
-num.names$ -- 10
-pop$ -- 28
+int.to.str$ -- 6
+missing$ -- 6
+newline$ -- 32
+num.names$ -- 12
+pop$ -- 37
 preamble$ -- 1
-purify$ -- 16
+purify$ -- 20
 quote$ -- 0
-skip$ -- 35
+skip$ -- 42
 stack$ -- 0
-substring$ -- 25
-swap$ -- 6
+substring$ -- 30
+swap$ -- 7
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 18
+type$ -- 20
 warning$ -- 0
-while$ -- 10
-width$ -- 6
-write$ -- 50
+while$ -- 12
+width$ -- 7
+write$ -- 60

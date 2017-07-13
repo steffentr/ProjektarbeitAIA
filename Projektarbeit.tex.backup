@@ -6,6 +6,7 @@
 \usepackage{scrextend}
 \usepackage{bm}
 \usepackage{cite}
+\usepackage{amsmath}
 
 %bindet die benutzten Packages ein
 
@@ -21,6 +22,12 @@
 
 %schreibt die generellen Informationen aus
 
+\numberwithin{equation}{section} %bestimmt die Nummerierung der Gleichungen, in diesem Fall nach Kapitel anstatt sie einfach durchzunummerieren
+
+\makenomenclature %erstellt und druckt die Nomenklatur-Tabelle
+
+\renewcommand{\refname}{}
+
 \begin{document}
 
 \maketitle
@@ -32,45 +39,57 @@
 \pagebreak
 
 \section{Nomenclature}
-\makenomenclature %erstellt und druckt die Nomenklatur-Tabelle
 \printnomenclature
 \pagebreak
 
 \section{Introduction}
+in Computational Methods for Multiphase Flow ist auf den Seiten 3-9 ein interessantes Beispiel.
 \pagebreak
 \section{Mathematical models}
 Sollen wir hier noch isotrope Turbulenz etc. erklaeren?
 \subsection{Single-phase flow} %Christian
 In this section the mathematical basics for understanding and simulating turbulent flows are discussed. However, it should be pointed out that this is no
 complete treatise of the mathematical and physical basics. The reader can achieve further insight on this topic by looking at different books and papers, 
-e.g. Pope (2000).
+e.g. \cite{turbulentFlows}.
 \newline
 \subsubsection{The Navier-Stokes equations}
 The Navier-Stokes-Equations are of great importance for understanding turbulent phenomena. This set of equations exists in forms for compressible and
-incompressible fluids. For an infinitesimal small volume element $ \mathrm{d} \matrix{\tau} $ and using the cartesian coordinate system,
+incompressible fluids. For an infinitesimal small volume element $ \mathrm{d} \tau $ and using the cartesian coordinate system, 
 they can be written in the so-called 'divergence form':
 \begin{equation}
-  \frac{\partial{\vec{Q}}}{\partial{t}} + \vec\nabla \matrix{H} = 0
+  \frac{\partial{\vec{Q}}}{\partial{t}} + \vec\nabla \vec{H} = 0
 \end{equation}
+\nomenclature{$\vec\nabla$}{Nabla-operator} %Erstellt automatisch die Nomenclature-Liste
+\nomenclature{$\vec\Q$}{Container for conserved variables in the Navier-Stokes equations}
+\nomenclature{$\vec{H}$}{Container for fluctuating variables in the Navier-Stokes equations}
 It should be noted by the reader that this work only contains investigations about chemically inert fluids and particles, and that the simulation results
 only fit under this condition. The vector $ \vec{Q} $ contains all the variables which are conserved, i.e. the density $ \rho $, 
 the velocity $ \vec{u} $ and the specific inner energy $ E $: 
+\nomenclature{$\rho$}{Density}
+\nomenclature{$\vec\u$}{Three-dimensional velocity}
+\nomenclature{$E$}{Specific inner energy}
 \begin{equation}
- \matrix{Q}= \left( \begin{array}{c}\rho\\\rho \vec{u}\\\rho E \end{array} \right)
+ \vec{Q}= \left( \begin{array}{c}\rho\\\rho \vec{u}\\\rho E \end{array} \right)
 \end{equation}
-$ \matrix{H} $ is the flux vector which stores all the floating variables and may be split up into two parts: 
+$ \vec{H} $ is the flux vector which stores all the floating variables and may be split up into two parts: 
 \begin{equation}
- \matrix{H} = \matrix{H^\mathrm{i}} + \matrix{H^\mathrm{v}}
+ \vec{H} = \vec{H^\mathrm{i}} + \vec{H^\mathrm{v}}
 \end{equation}
+\nomenclature{$\vec{H^\mathrm{i}}$}{Stores the inviscid variables in the flux-vector included in the Navier-Stokes equations}
+\nomenclature{$\vec{H^\mathrm{v}}$}{Stores the viscous variables in the flux-vector included in the Navier-Stokes equations}
 The contents of the two vectors are displayed below:
 \begin{equation}
- \matrix{H^\mathrm{i}} = \left( \begin{array}{c}\rho \vec{u}\\\rho \vec{u} \vec{u} + p\\\vec{u} (\rho E + p) \end{array} \right)
+ \vec{H^\mathrm{i}} = \left( \begin{array}{c}\rho \vec{u}\\\rho \vec{u} \vec{u} + p\\\vec{u} (\rho E + p) \end{array} \right)
 \end{equation}
+\nomenclature{$p$}{pressure}
 \begin{equation}
- \matrix{H^\mathrm{v}} = - \frac{1}{Re} \left( \begin{array}{c}\ 0 \\ \matrix{\tau}\\ \matrix{\tau} \vec{u} + \vec{q} \end{array} \right)
+ \vec{H^\mathrm{v}} = - \frac{1}{Re} \left( \begin{array}{c}\ 0 \\ \matrix{\tau}\\ \matrix{\tau} \vec{u} + \vec{q} \end{array} \right)
 \end{equation}
-$ \matrix{H^\mathrm{i}} $ is called inviscid flux and contains only the variables that are independent of the fluids viscosity, it describes the way a fluid 
-with zero viscosity would behave. In contrast, the viscous flux $ \matrix{H^\mathrm{v}} $ represents the effects of viscosity. The Reynolds number 
+\nomenclature{$Re$}{Reynolds number}
+\nomenclature{$\matrix{\tau}$}{stress tensor}
+\nomenclature{$\vec{q}$}{heat conduction}
+$ \vec{H^\mathrm{i}} $ is called inviscid flux and contains only the variables that are independent of the fluids viscosity, it describes the way a fluid 
+with zero viscosity would behave. In contrast, the viscous flux $ \vec{H^\mathrm{v}} $ represents the effects of viscosity. The Reynolds number 
 $ Re = \frac{\rho v d}{\eta} $ is defined to be the ratio of inertia to tenacity, which makes it very valuable for understanding turbulent flows. This is also due to the 
 fact that two familiar objects with the same Reynolds number behave similar in turbulence. One can assume that flows with $ Re << 1 $ are laminar and flows with 
 $ Re >> 1 $ are turbulent.
@@ -124,14 +143,21 @@ Pojektion (noComputationalParticles)
 implizite LES (Motivation fuer LES -> Pope Chapter 9, Bild 9.4), DNS
 \pagebreak
 \section{Results}
+%\begin{figure}
+ %\centering %setzt das Bild mittig
+ %\includegraphics{} %Dateiname einfuegen um Datei zu verwenden
+ %\caption{} %setzt die Bildunterschrift
+% \label{} %setzt das Label
+%\end{figure}
+
 Graphen (particleFree rot, Laden gruen)
 \pagebreak
 \section{Conclusion}
 \pagebreak
-\section{Bibliography}
-\nocite{*}
-\bibliography{Projektarbeit}
-\bibliographystyle{plain}
+\section{References}
+\nocite{*} %ermoeglicht, dass auch Literatur, welche nicht zitiert wurde in der Bibliography auftaucht
+\bibliography{Projektarbeit} %ruft die Bibliography-Datei auf
+\bibliographystyle{plain} %setzt den Zitierstil
 \pagebreak
 
 \end{document}

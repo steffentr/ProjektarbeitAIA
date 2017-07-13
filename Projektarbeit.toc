@@ -7,4 +7,4 @@
 \contentsline {section}{\numberline {4}Numerical methods}{8}
 \contentsline {section}{\numberline {5}Results}{9}
 \contentsline {section}{\numberline {6}Conclusion}{10}
-\contentsline {section}{\numberline {7}Bibliography}{11}
+\contentsline {section}{\numberline {7}References}{11}
