@@ -1,4 +1,6 @@
 \documentclass[a4paper,10pt]{article}
+
+
 \usepackage[utf8]{inputenc}
 \usepackage{tocloft}
 \usepackage{nomencl}
@@ -137,12 +139,6 @@ p = \rho R T $ are used. The specific gas constant is determined by $ R = c_p - 
 These equations form a set of partial differential equations, so for solving them starting values are needed. These are initialized at the first timestep of 
 the simulation. To achieve physical solutions, 150 timesteps are computed before the particles are initialized, so the turbulence can evolve from the 
 synthetic values to a natural flow field. 
-\newline
-Christoph Siewert:
--2.1 bis 2.6
-Stephan Fritz:
--Navier-Stokes-Gleichungen (Anhang B)
-Randbedingungen?
 \pagebreak
 \subsection{Particle dynamics} %Steffen
 Siewert:
@@ -161,10 +157,17 @@ implizite LES (Motivation fuer LES -  Pope Chapter 9, Bild 9.4), DNS
 \pagebreak
 \section{Results}
 \subsection{Boundary conditions and simulation properties}
-The simulations where carried out using ZFS, the simulation tool developed and implemented at the Institute of Aerodynamics at RWTH Aachen University \cite{anAdaptiveMultilevelMultigridFormulationForCartesianHierarchicalGridMethods} \cite{aStrictlyConservativeCartesianCutCellMethodForCompressibleViscousFlowsOnAdaptiveGrids}. The tool is capable of simulating finite-volume flows of compressible fluids. 
-In this case the turbulence was simulated on a cubic grid using $64^3$,$96^3$,$128^3$ and $256^3$. The first three cases where simulated using LES (Zitat), the case in which $256^3$ cells where used is carried out as DNS. 
-For simplification, the special case of isotropic turbulence was used. For this idealised flow form the statistical velocities are invariant in all directions of the grid. It follows that the flow is invariant for rotations and reflections. 
-The turbulence was initialised using a seed-based random generator. To achieve physical results, the simulation was carried out  to timestep 150, at which a restart file was written out. This procedure insures a fully developed turbulent flow, which has emancipated from the initialisation. In this flow field, a specific number of spherical particles where injected. The velocties of the fluid where interpolated for each particle to match the velocities of particles and fluid as accurately as possible.
+The simulations where carried out using ZFS, the simulation tool developed and implemented at the Institute of Aerodynamics at RWTH Aachen University 
+\cite{anAdaptiveMultilevelMultigridFormulationForCartesianHierarchicalGridMethods} \cite{aStrictlyConservativeCartesianCutCellMethodForCompressibleViscousFlowsOnAdaptiveGrids}. 
+The tool is capable of simulating finite-volume flows of compressible fluids. 
+In this case the turbulence was simulated on a cubic grid using $64^3$,$96^3$,$128^3$ and $256^3$. The first three cases where simulated using LES, 
+the case in which $256^3$ cells where used is carried out as DNS. Futher information can be gained by looking at \cite[p.344-357 for DNS and p. 558-639 for LES]{turbulentFlows}.
+For simplification, the special case of isotropic turbulence was used. For this idealised flow form the statistical 
+velocities are invariant in all directions of the grid. It follows that the flows velocity are invariant for rotations and reflections. 
+The turbulence was initialised using a seed-based random generator. To achieve physical results, the simulation was carried out  to timestep 150, 
+at which a restart file was written out. This procedure insures a fully developed turbulent 
+flow, which has emancipated from the initialisation. In this flow field, a specific number of spherical particles where injected. 
+The velocties of the fluid where interpolated for each particle to match the velocities of particles and fluid as accurately as possible.
 
 boundary conditions, for example Reynolds number?
 

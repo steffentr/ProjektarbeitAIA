@@ -27,6 +27,7 @@
 \makenomenclature %erstellt und druckt die Nomenklatur-Tabelle
 
 \renewcommand{\refname}{}
+\renewcommand{\nomname}{}
 
 \begin{document}
 
@@ -46,7 +47,7 @@
 in Computational Methods for Multiphase Flow ist auf den Seiten 3-9 ein interessantes Beispiel.
 \pagebreak
 \section{Mathematical models}
-Sollen wir hier noch isotrope Turbulenz etc. erklaeren?
+\pagebreak
 \subsection{Single-phase flow} %Christian
 In this section the mathematical basics for understanding and simulating turbulent flows are discussed. However, it should be pointed out that this is no
 complete treatise of the mathematical and physical basics. The reader can achieve further insight on this topic by looking at different books and papers, 
@@ -81,13 +82,13 @@ The contents of the two vectors are displayed below:
 \begin{equation}
  \vec{H^\mathrm{i}} = \left( \begin{array}{c}\rho \vec{u}\\\rho \vec{u} \vec{u} + p\\\vec{u} (\rho E + p) \end{array} \right)
 \end{equation}
-\nomenclature{$p$}{pressure}
+\nomenclature{$p$}{Pressure}
 \begin{equation}
  \vec{H^\mathrm{v}} = - \frac{1}{Re} \left( \begin{array}{c}\ 0 \\ \matrix{\tau}\\ \matrix{\tau} \vec{u} + \vec{q} \end{array} \right)
 \end{equation}
 \nomenclature{$Re$}{Reynolds number}
-\nomenclature{$\matrix{\tau}$}{stress tensor}
-\nomenclature{$\vec{q}$}{heat conduction}
+\nomenclature{$\matrix{\tau}$}{Stress tensor}
+\nomenclature{$\vec{q}$}{Heat conduction}
 $ \vec{H^\mathrm{i}} $ is called inviscid flux and contains only the variables that are independent of the fluids viscosity, it describes the way a fluid 
 with zero viscosity would behave. In contrast, the viscous flux $ \vec{H^\mathrm{v}} $ represents the effects of viscosity. The Reynolds number 
 $ Re = \frac{\rho v d}{\eta} $ is defined to be the ratio of inertia to tenacity, which makes it very valuable for understanding turbulent flows. This is also due to the 
@@ -98,39 +99,44 @@ and the heat conduction $ \vec{q} $, the following equations are used:
 \begin{equation}
  E = e  \frac{1}{2} \vec{|u|}^2
 \end{equation}
+\nomenclature{$e$}{Specific internal energy}
 \begin{equation}
  \vec{q} = - \frac{\mu}{Pr (\gamma - 1)} \vec\nabla T
 \end{equation}
+\nomenclature{$Pr$}{Prandtl number}
+\nomenclature{$\mu$}{Dynamic viscosity}
 with 
 \begin{equation}
  \gamma = \frac{c_p}{c_v}
 \end{equation}
+\nomenclature{$c_p$}{Specific isobaric heat capacity}
+\nomenclature{$c_v$}{Specific isochoric heat capacity}
 and the Prandtl number
 \begin{equation}
  Pr = \frac{\mu_\infty c_p}{k_t}
 \end{equation}
+\nomenclature{$k_t$}{thermal conductivity}
 using the specific heat capacities of the fluid $ c_v $ and $ c_p $.
 If one could assume that the fluid is a newtonian fluid, the linear correlation between stress and the rate of strain results in:
 \begin{equation}
  \matrix{\tau} = 2 \mu \matrix{S} - \frac{2}{3} \mu (\vec\nabla * \vec{u}) \matrix{I}
 \end{equation}
+\nomenclature{$\matrix{I}$}{Identity tensor}
+\nomenclature{$\matrix{S}$}{Rate-of-strain-tensor}
+\nomenclature{$T$}{Temperature}
 in which $ \matrix{S} = \frac{(\vec\nabla \vec{u})(\vec\nabla \vec{u})^T}{2} $ denotes the rate-of-strain-tensor. Additionally, the viscosity
 $ \mu $ can be aprroximated through Sutherland's law, which is based on the ideal gas-theory: 
 \begin{equation}
  \mu (T) = \mu_\infty (\frac{T}{t_\infty})^{3/2} \frac{T_\infty + S}{T + S}
 \end{equation}
+\nomenclature{$S$}{Sutherland temperature}
+\nomenclature{$R$}{Universal gas constant}
 S is in this case the Sutherland temperature.
 To achieve closure the caloric state equation $ e = c_v T $ and the state eqaution for an ideal gas $
-p = \rho R T $ are used. The specific gas constant is determined by $ R = c_p - c_v $.
+p = \rho R T $ are used. The specific gas constant is determined by $ R = c_p - c_v $. 
 These equations form a set of partial differential equations, so for solving them starting values are needed. These are initialized at the first timestep of 
 the simulation. To achieve physical solutions, 150 timesteps are computed before the particles are initialized, so the turbulence can evolve from the 
 synthetic values to a natural flow field. 
-\newline
-Christoph Siewert:
--2.1 bis 2.6
-Stephan Fritz:
--Navier-Stokes-Gleichungen (Anhang B)
-Randbedingungen?
 \pagebreak
 \subsection{Particle dynamics} %Steffen
 Siewert:
@@ -139,10 +145,23 @@ Stokes Drag/Stokes Coefficient
 Filterung (Fritz) ->Viskositaet durch numerischen Fehler, Smagorinksy nicht benutzen
 \pagebreak
 \section{Numerical methods} %Julian
+To simulate flows like those described above we have two options. The direct numerical simulation (DNS) is the easier one to understand, although it is numerically very expensive. The Large-eddy simulation (LES) is numerically more capable, still we must accept certain inaccuracies. These two numerical methods are now discussed in the following chapter.
+\subsection{Direct numerical simulation}
+The basis of the direct numerical simulation (DNS) are the Navier-Stokes equations as described above. The idea is that the computer is very good at calculating and solves these equations completely. This provides us a very accurate result, as all scales of motion are being resolved. Still it requires an immense level of comptational resources which increases rapidly with the Reynolds number. These computational resources were not available until the 1970s \cite{turbulentFlows}.
+\newline
+\pagebreak
 Pojektion (noComputationalParticles)
-implizite LES (Motivation fuer LES -> Pope Chapter 9, Bild 9.4), DNS
+implizite LES (Motivation fuer LES -  Pope Chapter 9, Bild 9.4), DNS
 \pagebreak
 \section{Results}
+\subsection{Boundary conditions and simulation properties}
+The simulations where carried out using ZFS, the simulation tool developed and implemented at the Institute of Aerodynamics at RWTH Aachen University \cite{anAdaptiveMultilevelMultigridFormulationForCartesianHierarchicalGridMethods} \cite{aStrictlyConservativeCartesianCutCellMethodForCompressibleViscousFlowsOnAdaptiveGrids}. The tool is capable of simulating finite-volume flows of compressible fluids. 
+In this case the turbulence was simulated on a cubic grid using $64^3$,$96^3$,$128^3$ and $256^3$. The first three cases where simulated using LES (Zitat), the case in which $256^3$ cells where used is carried out as DNS. 
+For simplification, the special case of isotropic turbulence was used. For this idealised flow form the statistical velocities are invariant in all directions of the grid. It follows that the flow is invariant for rotations and reflections. 
+The turbulence was initialised using a seed-based random generator. To achieve physical results, the simulation was carried out  to timestep 150, at which a restart file was written out. This procedure insures a fully developed turbulent flow, which has emancipated from the initialisation. In this flow field, a specific number of spherical particles where injected. The velocties of the fluid where interpolated for each particle to match the velocities of particles and fluid as accurately as possible.
+
+boundary conditions, for example Reynolds number?
+
 %\begin{figure}
  %\centering %setzt das Bild mittig
  %\includegraphics{} %Dateiname einfuegen um Datei zu verwenden

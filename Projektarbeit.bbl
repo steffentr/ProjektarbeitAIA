@@ -5,6 +5,18 @@ Edited by~A.~Prosperetti and G.~Tryggvason.
 \newblock {\em Computational Methods for Multiphase Flow}.
 \newblock Cambridge University Press, 2009.
 
+\bibitem{anAdaptiveMultilevelMultigridFormulationForCartesianHierarchicalGridMethods}
+W.~Schr\"oder D.~Hartmann, M.~Meinke.
+\newblock An adaptive multilevel multigrid formulation for cartesian
+  hierarchical grid methods.
+\newblock {\em Comput. Fluids}, 2008.
+
+\bibitem{aStrictlyConservativeCartesianCutCellMethodForCompressibleViscousFlowsOnAdaptiveGrids}
+W.~Schr\"oder D.~Hartmann, M.~Meinke.
+\newblock A strictly conservative cartesian cut-cell method for compressible
+  viscous flows on adaptive grids.
+\newblock {\em Comput. Meth. Appl. Mech. Eng.}, 2010.
+
 \bibitem{particleladenTurbulentFlows:DirectSimulationAndClosureModels}
 S.~Elghobashi.
 \newblock Particle-laden turbulent flows: direct simulation and closure models.
@@ -12,7 +24,8 @@ S.~Elghobashi.
 
 \bibitem{studienarbeit}
 S.~Fritz.
-\newblock Simulation isotroper turbulenz, 2003.
+\newblock Simulation isotroper turbulenz.
+\newblock study work, 2003.
 
 \bibitem{ValidationOfParticleLadenLargeEddySimulationUsingHPCSystems}
 M.~Meinke K.~Fr\"ohlich, L.~Schneiders and W.~Schr\"oder.
@@ -27,6 +40,7 @@ S.~B. Pope.
 
 \bibitem{fluidmechanikAIA}
 W.~Schr\"oder.
-\newblock Fluidmechanik, 2010.
+\newblock Fluidmechanik.
+\newblock lecture notes 'Fluid mechanics', 2010.
 
 \end{thebibliography}
