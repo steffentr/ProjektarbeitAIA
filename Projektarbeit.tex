@@ -9,6 +9,7 @@
 \usepackage{bm}
 \usepackage{cite}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 %bindet die benutzten Packages ein
 
@@ -18,9 +19,9 @@
 %setzt die fettgedruckte Schreibweise fuer Vektoren und Matrizen
 
 %opening
-\title{Investigations on one-way coupling effects of particle-laden decaying isotropic turbulent flows}
+\title{Investigations on one-way coupling effects of particle-laden decaying isotropic turbulent flows \thanks{supervisor: Konstantin Fr\"olich}
 \author{Julian Stemmermann, Steffen Trienekens, Christian Soika}
-\date{Aachen, 3rd of July 2017}
+\date{}
 
 %schreibt die generellen Informationen aus
 
@@ -33,7 +34,28 @@
 
 \begin{document}
 
-\maketitle
+%\maketitle
+
+\begin{titlepage}
+	\centering
+	%\includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
+	{\scshape\LARGE RWTH Aachen University \par}
+	\vspace{1cm}
+	{\scshape\Large Project Work\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Investigations on one-way coupling effects of particle-laden decaying isotropic turbulent flows \par}
+	\vspace{2cm}
+	{\Large\itshape Julian Stemmermann, Steffen Trienekens & Christian Soika\par}
+	\vfill
+	supervised by\par
+	Konstantin \textsc{Fr\"ohlich}
+
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
 
 \pagebreak
 
@@ -44,30 +66,28 @@
 \section{Nomenclature}
 \printnomenclature
 \pagebreak
-
 \section{Introduction}
 in Computational Methods for Multiphase Flow ist auf den Seiten 3-9 ein interessantes Beispiel.
 \pagebreak
 \section{Mathematical models}
 \pagebreak
 \subsection{Single-phase flow} %Christian
-In this section the mathematical basics for understanding and simulating turbulent flows are discussed. However, it should be pointed out that this is no
-complete treatise of the mathematical and physical basics. The reader can achieve further insight on this topic by looking at different books and papers, 
-e.g. \cite{turbulentFlows}.
+In this section the mathematical basics for understanding and simulating turbulent flows are discussed. 
+However, it should be pointed out that this is no complete treatise of the mathematical and physical basics. 
+The reader can achieve further insight on this topic by looking at different books and papers, e.g. \cite{turbulentFlows}.
 \newline
 \subsubsection{The Navier-Stokes equations}
-The Navier-Stokes-Equations are of great importance for understanding turbulent phenomena. This set of equations exists in forms for compressible and
-incompressible fluids. For an infinitesimal small volume element $ \mathrm{d} \tau $ and using the cartesian coordinate system, 
-they can be written in the so-called 'divergence form':
+The Navier-Stokes-Equations are of great importance for understanding turbulent phenomena. 
+This set of equations exists in forms for compressible and incompressible fluids. 
+For an infinitesimal small volume element $ \mathrm{d} \tau $ and using the cartesian coordinate system, they can be written in the so-called 'divergence form':
 \begin{equation}
   \frac{\partial{\vec{Q}}}{\partial{t}} + \vec\nabla \vec{H} = 0
 \end{equation}
 \nomenclature{$\vec\nabla$}{Nabla-operator} %Erstellt automatisch die Nomenclature-Liste
 \nomenclature{$\vec\Q$}{Container for conserved variables in the Navier-Stokes equations}
 \nomenclature{$\vec{H}$}{Container for fluctuating variables in the Navier-Stokes equations}
-It should be noted by the reader that this work only contains investigations about chemically inert fluids and particles, and that the simulation results
-only fit under this condition. The vector $ \vec{Q} $ contains all the variables which are conserved, i.e. the density $ \rho $, 
-the velocity $ \vec{u} $ and the specific inner energy $ E $: 
+It should be noted by the reader that this work only contains investigations about chemically inert fluids and particles, and that the simulation results only fit under this condition. 
+The vector $ \vec{Q} $ contains all the variables which are conserved, i.e. the density $ \rho $, the velocity $ \vec{u} $ and the specific inner energy $ E $: 
 \nomenclature{$\rho$}{Density}
 \nomenclature{$\vec\u$}{Three-dimensional velocity}
 \nomenclature{$E$}{Specific inner energy}
@@ -91,13 +111,13 @@ The contents of the two vectors are displayed below:
 \nomenclature{$Re$}{Reynolds number}
 \nomenclature{$\matrix{\tau}$}{Stress tensor}
 \nomenclature{$\vec{q}$}{Heat conduction}
-$ \vec{H^\mathrm{i}} $ is called inviscid flux and contains only the variables that are independent of the fluids viscosity, it describes the way a fluid 
-with zero viscosity would behave. In contrast, the viscous flux $ \vec{H^\mathrm{v}} $ represents the effects of viscosity. The Reynolds number 
-$ Re = \frac{\rho v d}{\eta} $ is defined to be the ratio of inertia to tenacity, which makes it very valuable for understanding turbulent flows. This is also due to the 
-fact that two familiar objects with the same Reynolds number behave similar in turbulence. One can assume that flows with $ Re << 1 $ are laminar and flows with 
-$ Re >> 1 $ are turbulent.
-To solve the Navier-Stokes-Equations, more information regarding some variables is required. For Calculating the specific inner Energy $ E $ 
-and the heat conduction $ \vec{q} $, the following equations are used:
+$ \vec{H^\mathrm{i}} $ is called inviscid flux and contains only the variables that are independent of the fluids viscosity, it describes the way a fluid with zero viscosity would behave. 
+In contrast, the viscous flux $ \vec{H^\mathrm{v}} $ represents the effects of viscosity. 
+The Reynolds number $ Re = \frac{\rho v d}{\eta} $ is defined to be the ratio of inertia to tenacity, which makes it very valuable for understanding turbulent flows. 
+This is also due to the fact that two familiar objects with the same Reynolds number behave similar in turbulence. 
+One can assume that flows with $ Re << 1 $ are laminar and flows with $ Re >> 1 $ are turbulent.
+To solve the Navier-Stokes-Equations, more information regarding some variables is required. 
+For Calculating the specific inner Energy $ E $ and the heat conduction $ \vec{q} $, the following equations are used:
 \begin{equation}
  E = e  \frac{1}{2} \vec{|u|}^2
 \end{equation}
@@ -126,23 +146,21 @@ If one could assume that the fluid is a newtonian fluid, the linear correlation 
 \nomenclature{$\matrix{I}$}{Identity tensor}
 \nomenclature{$\matrix{S}$}{Rate-of-strain-tensor}
 \nomenclature{$T$}{Temperature}
-in which $ \matrix{S} = \frac{(\vec\nabla \vec{u})(\vec\nabla \vec{u})^T}{2} $ denotes the rate-of-strain-tensor. Additionally, the viscosity
-$ \mu $ can be aprroximated through Sutherland's law, which is based on the ideal gas-theory: 
+in which $ \matrix{S} = \frac{(\vec\nabla \vec{u})(\vec\nabla \vec{u})^T}{2} $ denotes the rate-of-strain-tensor. 
+Additionally, the viscosity $ \mu $ can be aprroximated through Sutherland's law, which is based on the ideal gas-theory: 
 \begin{equation}
  \mu (T) = \mu_\infty (\frac{T}{t_\infty})^{3/2} \frac{T_\infty + S}{T + S}
 \end{equation}
 \nomenclature{$S$}{Sutherland temperature}
 \nomenclature{$R$}{Universal gas constant}
 S is in this case the Sutherland temperature.
-To achieve closure the caloric state equation $ e = c_v T $ and the state eqaution for an ideal gas $
-p = \rho R T $ are used. The specific gas constant is determined by $ R = c_p - c_v $. 
-These equations form a set of partial differential equations, so for solving them starting values are needed. These are initialized at the first timestep of 
-the simulation. To achieve physical solutions, 150 timesteps are computed before the particles are initialized, so the turbulence can evolve from the 
-synthetic values to a natural flow field. 
+To achieve closure the caloric state equation $ e = c_v T $ and the state eqaution for an ideal gas $ p = \rho R T $ are used. 
+The specific gas constant is determined by $ R = c_p - c_v $. 
+These equations form a set of partial differential equations which is used to compute the flow statistics.
 \pagebreak
 \subsection{Particle dynamics} %Steffen
 Siewert:
--3.1a-3.14 (spherical particles) OHNE GRAVITATION
+-3.1a-3.4 (spherical particles) OHNE GRAVITATION
 Stokes Drag/Stokes Coefficient
 Filterung (Fritz) ->Viskositaet durch numerischen Fehler, Smagorinksy nicht benutzen
 \pagebreak
@@ -150,7 +168,6 @@ Filterung (Fritz) ->Viskositaet durch numerischen Fehler, Smagorinksy nicht benu
 To simulate flows like those described above we have two options. The direct numerical simulation (DNS) is the easier one to understand, although it is numerically very expensive. The Large-eddy simulation (LES) is numerically more capable, still we must accept certain inaccuracies. These two numerical methods are now discussed in the following chapter.
 \subsection{Direct numerical simulation}
 The basis of the direct numerical simulation (DNS) are the Navier-Stokes equations as described above. The idea is that the computer is very good at calculating and solves these equations completely. This provides us a very accurate result, as all scales of motion are being resolved. Still it requires an immense level of comptational resources which increases rapidly with the Reynolds number. These computational resources were not available until the 1970s \cite{turbulentFlows}.
-\newline
 \pagebreak
 Pojektion (noComputationalParticles)
 implizite LES (Motivation fuer LES -  Pope Chapter 9, Bild 9.4), DNS
@@ -160,17 +177,19 @@ implizite LES (Motivation fuer LES -  Pope Chapter 9, Bild 9.4), DNS
 The simulations where carried out using ZFS, the simulation tool developed and implemented at the Institute of Aerodynamics at RWTH Aachen University 
 \cite{anAdaptiveMultilevelMultigridFormulationForCartesianHierarchicalGridMethods} \cite{aStrictlyConservativeCartesianCutCellMethodForCompressibleViscousFlowsOnAdaptiveGrids}. 
 The tool is capable of simulating finite-volume flows of compressible fluids. 
-In this case the turbulence was simulated on a cubic grid using $64^3$,$96^3$,$128^3$ and $256^3$. The first three cases where simulated using LES, 
-the case in which $256^3$ cells where used is carried out as DNS. Futher information can be gained by looking at \cite[p.344-357 for DNS and p. 558-639 for LES]{turbulentFlows}.
-For simplification, the special case of isotropic turbulence was used. For this idealised flow form the statistical 
-velocities are invariant in all directions of the grid. It follows that the flows velocity are invariant for rotations and reflections. 
-The turbulence was initialised using a seed-based random generator. To achieve physical results, the simulation was carried out  to timestep 150, 
-at which a restart file was written out. This procedure insures a fully developed turbulent 
-flow, which has emancipated from the initialisation. In this flow field, a specific number of spherical particles where injected. 
+In this case the turbulence was simulated on a cubic grid using $64^3$,$96^3$,$128^3$ and $256^3$. 
+The first three cases where simulated using LES, the case in which $256^3$ cells where used is carried out as DNS. 
+Futher information can be gained by looking at \cite[p.344ff for DNS and p. 558ff for LES]{turbulentFlows}.
+For simplification, the special case of isotropic turbulence was used. 
+For this idealised flow form the statistical velocities are invariant in all directions of the grid. 
+It follows that the flows velocity are invariant for rotations and reflections. 
+The turbulence was initialised using a seed-based random generator. 
+To achieve physical results, the simulation was carried out  to timestep 150, at which a restart file was written out. 
+This procedure insures a fully developed turbulent flow, which has emancipated from the initialisation. 
+In this flow field, a specific number of spherical particles where injected. 
 The velocties of the fluid where interpolated for each particle to match the velocities of particles and fluid as accurately as possible.
 
 boundary conditions, for example Reynolds number?
-
 %\begin{figure}
  %\centering %setzt das Bild mittig
  %\includegraphics{} %Dateiname einfuegen um Datei zu verwenden
